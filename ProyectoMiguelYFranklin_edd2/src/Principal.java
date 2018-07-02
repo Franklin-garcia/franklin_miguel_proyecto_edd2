@@ -81,6 +81,7 @@ public class Principal extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         jd_archivo = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -155,6 +156,8 @@ public class Principal extends javax.swing.JFrame {
         jd_borrarRegistro = new javax.swing.JDialog();
         jButton20 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
+        jd_Modificar = new javax.swing.JDialog();
+        jButton21 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Archivos = new javax.swing.JButton();
@@ -342,10 +345,21 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton19.setText("Modificar registro");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(175, 175, 175))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -359,12 +373,11 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton28))))
+                            .addComponent(jButton28)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(98, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(175, 175, 175))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,11 +390,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE))
+                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_escribir_archivoLayout = new javax.swing.GroupLayout(jd_escribir_archivo.getContentPane());
@@ -1176,6 +1191,30 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
+        jButton21.setText("Modificar");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ModificarLayout = new javax.swing.GroupLayout(jd_Modificar.getContentPane());
+        jd_Modificar.getContentPane().setLayout(jd_ModificarLayout);
+        jd_ModificarLayout.setHorizontalGroup(
+            jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
+        );
+        jd_ModificarLayout.setVerticalGroup(
+            jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
@@ -1878,13 +1917,6 @@ public class Principal extends javax.swing.JFrame {
             archivo1 = jc.getSelectedFile();
             archivo = new File(archivo1.getPath());
             NameFileTxt = archivo1.getPath();
-            /*
-            if (archivo.exists()) {
-                CargarArchivo(archivo.getParent());
-
-                AdminRegistros.setDirPatch(NameFileTxt);
-            }
-             */
             lb_File.setText(archivo1.getPath());
             System.out.println("Se cargo el archivo " + NameFileTxt);
             try {
@@ -2211,27 +2243,102 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        jd_Modificar.setModal(true);
+        jd_Modificar.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        jd_Modificar.setLocationRelativeTo(this);
+        jd_Modificar.setVisible(true);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        int llave = 0;
+        llave = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la llave del Registro a Eliminar"));
+        Node EliminarRegistro = AdminRegistros.getBtree().search(llave);
+        if (EliminarRegistro != null) {
+            try {
+                int pos = 0;
+                System.out.println(EliminarRegistro.getKeys().toString());
+                System.out.println(EliminarRegistro.getPointers().toString());
+                String llaveString = "";
+                llaveString = llave + "";
+                for (Object key : EliminarRegistro.getKeys()) {
+                    if (llaveString.equalsIgnoreCase(key.toString())) {
+                        break;
+                    }
+                    pos++;
+                }
+                long PosicionRegistro = (long) EliminarRegistro.getPointers().get(pos);//Posicion en el archivo
+                String key = "";
+                String name = "", tipo = "";
+                int lon = 0, total = 0;
+                String enter = "+|";
+                registro += "+|";
+                int keyTree = 0;
+                boolean verdad = false;
+                for (int i = 1; i < lista_campos.size(); i++) {
+                    name = lista_campos.get(i).getNombre();
+                    lon = lista_campos.get(i).getLongitud();
+                    if (lista_campos.get(i).getLlave().equalsIgnoreCase("k")) {
+                        enter = llave + "";
+                        key = enter;
+                    } else {
+                        enter = JOptionPane.showInputDialog("Ingrese el " + name);
+                    }
+
+                    while (enter.length() > lon) {
+                        JOptionPane.showMessageDialog(this, name + " es muy extenso");
+                        enter = JOptionPane.showInputDialog("Ingrese " + name);
+                    }
+                    if (enter.length() < lon) {
+                        for (int j = enter.length(); j < lon; j++) {
+                            enter += "-";
+                        }
+                        enter += "|";
+                    } else {
+                        enter += "|";
+                    }
+                    registro += enter;
+                }
+                registro += "\n";
+                System.out.println("REGISTRO: " + registro);
+
+                //Modifico en el archivo
+                RandomAccessFile random_file;
+                random_file = new RandomAccessFile(NameFileTxt, "rw");
+                random_file.seek(PosicionRegistro);
+                random_file.writeBytes(registro);
+                System.out.println("");
+                random_file.close();
+                JOptionPane.showMessageDialog(this, "registro creado");
+                System.out.println(registro);
+            } catch (Exception ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "El Registro no existe");
+        }
+    }//GEN-LAST:event_jButton21ActionPerformed
     void GeneradorXLM() throws ParserConfigurationException, TransformerConfigurationException, TransformerException {
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-        // root elements
+        // Elementos Raices
         org.w3c.dom.Document doc = docBuilder.newDocument();
         org.w3c.dom.Element rootElement = doc.createElement("company");
         doc.appendChild(rootElement);
 
-        // staff elements
+        // Elementos
         org.w3c.dom.Element staff = doc.createElement("Staff");
         rootElement.appendChild(staff);
 
-        // set attribute to staff element
+        // Setear atributos a los campos
         Attr attr = doc.createAttribute("id");
         attr.setValue("1");
         staff.setAttributeNode(attr);
 
-        // shorten way
-        // staff.setAttribute("id", "1");
-        // firstname elements
+        // Manera corta
         long can_registros = AdminRegistros.getCantidadRegistros();
         DefaultTableModel modelo = (DefaultTableModel) new DefaultTableModel(0, 0);
 
@@ -2278,7 +2385,7 @@ public class Principal extends javax.swing.JFrame {
 
         System.out.println("File saved!");
     }
-    
+
     void GuardarRegistros(String Path) {
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
@@ -2357,8 +2464,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
@@ -2417,6 +2526,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JDialog jd_BuscarRegistro;
     private javax.swing.JDialog jd_Listar;
+    private javax.swing.JDialog jd_Modificar;
     private javax.swing.JDialog jd_archivo;
     private javax.swing.JDialog jd_borrarRegistro;
     private javax.swing.JDialog jd_campos;

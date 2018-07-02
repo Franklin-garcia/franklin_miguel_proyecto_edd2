@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class B_Plus_Tree<E extends Comparable<E>> implements Serializable {
+public class ArbolB<E extends Comparable<E>> implements Serializable {
 
     private static final long SerialVersioUID = 603L;
     private int Tam_hojas;
@@ -15,7 +15,7 @@ public class B_Plus_Tree<E extends Comparable<E>> implements Serializable {
     private LinkedList<Node<E>> buff;
     private int bufferboolSize;
 
-    public B_Plus_Tree(int tam_hoja, int tam_interno, int buffbool, long position) {
+    public ArbolB(int tam_hoja, int tam_interno, int buffbool, long position) {
         super();
         this.Tam_hojas = tam_hoja;
         this.Tam_interno = tam_interno;

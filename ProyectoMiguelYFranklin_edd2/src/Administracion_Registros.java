@@ -184,21 +184,6 @@ public class Administracion_Registros implements Serializable {
     public void addRegistro(String llave, long initial, ArrayList<Campos> ListCapmpos, String registro) throws FileNotFoundException, IOException {
         String retVal = "+|";
         int llaveInt = Integer.parseInt(llave);
-        /*
-        ACA SE GUARDA EL REGISTRO
-        int pos;
-        int array = 0;
-        for (Campos u : ListCampos) {
-            retVal += registro.get(array);
-            System.out.println("");
-
-            for (int i = 0; i < u.getLongitud()- llaveInt; i++) {
-                retVal += " ";
-            }
-            retVal += "|";
-            array++;
-        }
-         */
         CantidadRegistros++;
         System.out.println(CantidadRegistros);
         if (initial != -1) {
