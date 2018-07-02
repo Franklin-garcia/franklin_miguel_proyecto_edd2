@@ -18,6 +18,11 @@ import java.io.RandomAccessFile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.apache.poi.ss.usermodel.Workbook;
+import javax.swing.JTable;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
 
 /**
  *
@@ -320,4 +325,38 @@ public class Administracion_Registros implements Serializable {
         }
         return array;
     }
+    
+    Workbook wb;
+
+    public String Exportar(File archivo, JTable tabla) {
+        String respuesta = "No se realizo";
+        int numFile = tabla.getRowCount(), numColumna = tabla.getColumnCount();
+        if (archivo.getName().endsWith("xls")) {
+            wb = new HSSFWorkbook();
+        } else {
+            wb = new XSSFWorkbook();
+        }
+        Sheet hoja = wb.createSheet("pruebita");
+        try {
+            for (int i = 0; i < numFile; i++) {
+                Row fila = hoja.createRow(i + 1);
+                for (int j = 0; j < numColumna; j++) {
+                    Cell celda = fila.createCell(j);
+                    if (i == -1) {
+                        celda.setCellValue(String.valueOf(tabla.getColumnName(j)));
+                    } else {
+                        celda.setCellValue(String.valueOf(tabla.getValueAt(i, j)));
+                    }
+                    wb.write(new FileOutputStream(archivo)); 
+                }
+            }
+            respuesta="realizo exportacion";
+        } catch (Exception e) {
+        }
+        return respuesta;
+    }
+    
+    
+    
+    
 }

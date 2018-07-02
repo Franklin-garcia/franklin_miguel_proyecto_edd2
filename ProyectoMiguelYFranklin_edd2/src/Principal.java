@@ -23,6 +23,18 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Attr;
 
 /**
  *
@@ -138,6 +150,8 @@ public class Principal extends javax.swing.JFrame {
         jButton31 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tb_list_records = new javax.swing.JTable();
+        btnExportar = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
         jd_borrarRegistro = new javax.swing.JDialog();
         jButton20 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
@@ -1073,6 +1087,20 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tb_list_records);
 
+        btnExportar.setText("Exportar excel");
+        btnExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarActionPerformed(evt);
+            }
+        });
+
+        jButton18.setText("Exportar xml");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_ListarLayout = new javax.swing.GroupLayout(jd_Listar.getContentPane());
         jd_Listar.getContentPane().setLayout(jd_ListarLayout);
         jd_ListarLayout.setHorizontalGroup(
@@ -1087,8 +1115,12 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(258, 258, 258)
                         .addComponent(jLabel26))
                     .addGroup(jd_ListarLayout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(jButton31)))
+                        .addGap(75, 75, 75)
+                        .addComponent(jButton31)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnExportar)
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton18)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_ListarLayout.setVerticalGroup(
@@ -1098,9 +1130,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton31)
-                .addGap(28, 28, 28))
+                .addGap(31, 31, 31)
+                .addGroup(jd_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton31)
+                    .addComponent(btnExportar)
+                    .addComponent(jButton18))
+                .addGap(27, 27, 27))
         );
 
         jButton20.setText("ELIMINAR");
@@ -2150,6 +2185,100 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton28ActionPerformed
 
+    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+        Exp_excel excel = new Exp_excel(AdminRegistros, this);
+        excel.contAccion++;
+        if (excel.contAccion == 1) {
+            excel.agregarFiltro();
+        }
+        if (excel.selectArchivo.showDialog(null, "Exportar") == JFileChooser.APPROVE_OPTION) {
+            archivo = excel.selectArchivo.getSelectedFile();
+            if (archivo.getName().endsWith("xls") || archivo.getName().endsWith("xlsx")) {
+                JOptionPane.showMessageDialog(null, AdminRegistros.Exportar(archivo, tb_list_records));
+            } else {
+                JOptionPane.showMessageDialog(null, "Elija un formato valido");
+            }
+
+        }
+    }//GEN-LAST:event_btnExportarActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        try {
+            GeneradorXLM(); // TODO add your handling code here:
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+    void GeneradorXLM() throws ParserConfigurationException, TransformerConfigurationException, TransformerException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+        // root elements
+        org.w3c.dom.Document doc = docBuilder.newDocument();
+        org.w3c.dom.Element rootElement = doc.createElement("company");
+        doc.appendChild(rootElement);
+
+        // staff elements
+        org.w3c.dom.Element staff = doc.createElement("Staff");
+        rootElement.appendChild(staff);
+
+        // set attribute to staff element
+        Attr attr = doc.createAttribute("id");
+        attr.setValue("1");
+        staff.setAttributeNode(attr);
+
+        // shorten way
+        // staff.setAttribute("id", "1");
+        // firstname elements
+        long can_registros = AdminRegistros.getCantidadRegistros();
+        DefaultTableModel modelo = (DefaultTableModel) new DefaultTableModel(0, 0);
+
+        modelo.setColumnCount(0);
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        for (int i = 0; i < lista_campos.size(); i++) {
+            modelo.addColumn(lista_campos.get(i).getNombre());
+        }
+
+        try {
+
+            for (long i = 1; i <= AdminRegistros.getCantidadRegistros(); i++) {
+                ArrayList<String> array = AdminRegistros.ListRecord(AdminRegistros.PosicionRegistro(i), NameFileTxt);
+
+                Object[] row = new Object[lista_campos.size()];
+                row = array.toArray();
+                if (array.get(0).toString().equals("+")) {
+                    System.out.println(array.toString());
+                    int cont = 0;
+                    for (int j = 0; j < lista_campos.size(); j++) {
+                        row[j] = array.get(cont);
+                        org.w3c.dom.Element firstname = doc.createElement(lista_campos.get(j).getNombre());
+                        firstname.appendChild(doc.createTextNode(array.get(cont)));
+                        staff.appendChild(firstname);
+                        cont++;
+                    }
+                    modelo.addRow(row);
+                }
+            }
+        } catch (Exception e) {
+        }
+
+        // write the content into xml file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        JFileChooser rut = new JFileChooser();
+
+        StreamResult result = new StreamResult(new File(archivo.getParent() + "/registros.xml"));
+        System.out.println("Path " + archivo.getParent());
+        transformer.transform(source, result);
+
+        System.out.println("File saved!");
+    }
+    
     void GuardarRegistros(String Path) {
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
@@ -2214,6 +2343,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Estandarizacion;
     private javax.swing.JButton Indices;
     private javax.swing.JButton Registros;
+    public javax.swing.JButton btnExportar;
     private javax.swing.JRadioButton cb_llave;
     private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JComboBox<String> cb_tipo1;
@@ -2226,6 +2356,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton24;
@@ -2305,7 +2436,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabla_campos2;
     private javax.swing.JTable tabla_campos3;
     private javax.swing.JTable tb_buscarreg;
-    private javax.swing.JTable tb_list_records;
+    public javax.swing.JTable tb_list_records;
     private javax.swing.JTextField tf_buscar_reg_llave;
     private javax.swing.JTextField tf_longitud;
     private javax.swing.JTextField tf_longitud1;
