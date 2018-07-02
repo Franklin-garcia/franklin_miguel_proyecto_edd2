@@ -1355,7 +1355,7 @@ public class Principal extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ocurrio un error");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Usted ya no puede modificar su metadata, debe crear otro archivo!");
         }
 
@@ -1692,9 +1692,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void tabla_campos2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_campos2MouseClicked
-        if (evt.isMetaDown()) {
-            menu_pop_modificar_campos.show(evt.getComponent(), evt.getX(), evt.getY());
+        if (AdminRegistros.getCantidadRegistros() == 0) {
+            if (evt.isMetaDown()) {
+                menu_pop_modificar_campos.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Usted ya tiene registros, no puede modificarla");
         }
+
     }//GEN-LAST:event_tabla_campos2MouseClicked
 
     private void menu1_modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1_modActionPerformed
@@ -1785,9 +1790,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void tabla_campos3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_campos3MouseClicked
-        if (evt.isMetaDown()) {
-            menu_pop_eliminar_campos.show(evt.getComponent(), evt.getX(), evt.getY());
+        if (AdminRegistros.getCantidadRegistros() == 0) {
+            if (evt.isMetaDown()) {
+                menu_pop_eliminar_campos.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Usted no puede modificar metadata, ya creo registros");
         }
+
     }//GEN-LAST:event_tabla_campos3MouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
