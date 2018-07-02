@@ -81,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
         jd_archivo = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -157,7 +157,7 @@ public class Principal extends javax.swing.JFrame {
         jButton20 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jd_Modificar = new javax.swing.JDialog();
-        jButton21 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Archivos = new javax.swing.JButton();
@@ -201,6 +201,11 @@ public class Principal extends javax.swing.JFrame {
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -345,10 +350,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton19.setText("Modificar registro");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        jButton32.setText("MODIFICAR");
+        jButton32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton32MouseClicked(evt);
+            }
+        });
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                jButton32ActionPerformed(evt);
             }
         });
 
@@ -375,9 +385,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton28)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,13 +400,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_escribir_archivoLayout = new javax.swing.GroupLayout(jd_escribir_archivo.getContentPane());
@@ -1191,10 +1201,10 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        jButton21.setText("Modificar");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        jButton19.setText("MODIFICAR");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                jButton19ActionPerformed(evt);
             }
         });
 
@@ -1203,16 +1213,16 @@ public class Principal extends javax.swing.JFrame {
         jd_ModificarLayout.setHorizontalGroup(
             jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ModificarLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(107, 107, 107)
+                .addComponent(jButton19)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jd_ModificarLayout.setVerticalGroup(
             jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ModificarLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addComponent(jButton19)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1322,56 +1332,71 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        try {
-            String llave = "";
-            if (cb_llave.isSelected() && seleccion == false) {
-                llave = "k";
-                seleccion = true;
-                cb_llave.setVisible(false);
-                lb_llave.setText("Ya se ha elegido una llave");
-            } else {
-                llave = "n";
+        if (AdminRegistros.getCantidadRegistros() == 0) {
+            try {
+                String llave = "";
+                if (cb_llave.isSelected() && seleccion == false) {
+                    llave = "k";
+                    seleccion = true;
+                    cb_llave.setVisible(false);
+                    lb_llave.setText("Ya se ha elegido una llave");
+                } else {
+                    llave = "n";
+                }
+                String tipo = "", nombre = "", longitud = "";
+                tipo = "" + cb_tipo.getSelectedItem();
+                nombre = tf_nombre.getText();
+                longitud = tf_longitud.getText();
+                metadata += tipo + ":" + nombre + ":" + longitud + ":" + llave + ";";
+                JOptionPane.showMessageDialog(this, "Creo nuevo campo");
+                tf_nombre.setText("");
+                tf_longitud.setText("");
+                System.out.println(metadata);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ocurrio un error");
             }
-            String tipo = "", nombre = "", longitud = "";
-            tipo = "" + cb_tipo.getSelectedItem();
-            nombre = tf_nombre.getText();
-            longitud = tf_longitud.getText();
-            metadata += tipo + ":" + nombre + ":" + longitud + ":" + llave + ";";
-            JOptionPane.showMessageDialog(this, "Creo nuevo campo");
-            tf_nombre.setText("");
-            tf_longitud.setText("");
-            System.out.println(metadata);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }else{
+            JOptionPane.showMessageDialog(this, "Usted ya no puede modificar su metadata, debe crear otro archivo!");
         }
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        try {
-            archivo = new File(NameFileTxt);
-            FileWriter fw = null;
-            BufferedWriter bw = null;
-            if (metadata.length() < 200) {
-                for (int j = metadata.length(); j < 200; j++) {
-                    metadata += "-";
+        if (AdminRegistros.getCantidadRegistros() == 0) {
+            if (seleccion == true) {
+                try {
+                    archivo = new File(NameFileTxt);
+                    FileWriter fw = null;
+                    BufferedWriter bw = null;
+                    if (metadata.length() < 200) {
+                        for (int j = metadata.length(); j < 200; j++) {
+                            metadata += "-";
+                        }
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "hubo un error");
                 }
+                try {
+                    metadata += "\n";
+                    fw = new FileWriter(archivo, false);
+                    bw = new BufferedWriter(fw);
+                    bw.write(metadata);
+                    bw.flush();
+                    bw.close();
+                    fw.close();
+                    JOptionPane.showMessageDialog(this, "Metadata guardada");
+                    metadata = "String" + ":" + "eliminado" + ":" + "1" + ":" + "n" + ";";
+                    seleccion = false;
+                } catch (Exception e) {
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Necesita seleccionar una llave para guardar la metadata");
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "hubo un error");
+        } else {
+            JOptionPane.showMessageDialog(this, "Usted ya creo un registro, no puede modificar la metadata");
         }
-        try {
-            metadata += "\n";
-            fw = new FileWriter(archivo, false);
-            bw = new BufferedWriter(fw);
-            bw.write(metadata);
-            bw.flush();
-            bw.close();
-            fw.close();
-            JOptionPane.showMessageDialog(this, "Metadata guardada");
-            metadata = "String" + ":" + "eliminado" + ":" + "1" + ":" + "n" + ";";
-            seleccion = false;
-        } catch (Exception e) {
-        }
+
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -1917,6 +1942,13 @@ public class Principal extends javax.swing.JFrame {
             archivo1 = jc.getSelectedFile();
             archivo = new File(archivo1.getPath());
             NameFileTxt = archivo1.getPath();
+            /*
+            if (archivo.exists()) {
+                CargarArchivo(archivo.getParent());
+
+                AdminRegistros.setDirPatch(NameFileTxt);
+            }
+             */
             lb_File.setText(archivo1.getPath());
             System.out.println("Se cargo el archivo " + NameFileTxt);
             try {
@@ -2245,13 +2277,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        jd_Modificar.setModal(true);
-        jd_Modificar.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
-        jd_Modificar.setLocationRelativeTo(this);
-        jd_Modificar.setVisible(true);
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         int llave = 0;
         llave = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la llave del Registro a Eliminar"));
         Node EliminarRegistro = AdminRegistros.getBtree().search(llave);
@@ -2319,26 +2344,44 @@ public class Principal extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "El Registro no existe");
         }
-    }//GEN-LAST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton32MouseClicked
+        jd_Modificar.setModal(true);
+        jd_Modificar.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        jd_Modificar.setLocationRelativeTo(this);
+        jd_Modificar.setVisible(true);
+    }//GEN-LAST:event_jButton32MouseClicked
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
     void GeneradorXLM() throws ParserConfigurationException, TransformerConfigurationException, TransformerException {
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-        // Elementos Raices
+        // root elements
         org.w3c.dom.Document doc = docBuilder.newDocument();
         org.w3c.dom.Element rootElement = doc.createElement("company");
         doc.appendChild(rootElement);
 
-        // Elementos
+        // staff elements
         org.w3c.dom.Element staff = doc.createElement("Staff");
         rootElement.appendChild(staff);
 
-        // Setear atributos a los campos
+        // set attribute to staff element
         Attr attr = doc.createAttribute("id");
         attr.setValue("1");
         staff.setAttributeNode(attr);
 
-        // Manera corta
+        // shorten way
+        // staff.setAttribute("id", "1");
+        // firstname elements
         long can_registros = AdminRegistros.getCantidadRegistros();
         DefaultTableModel modelo = (DefaultTableModel) new DefaultTableModel(0, 0);
 
@@ -2467,7 +2510,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
@@ -2477,6 +2519,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
